@@ -19,3 +19,5 @@
 查询参数 `offset` 是从零开始的页偏移，`limit` 默认 3，取值 1 至 100。响应中的 `records` 含 `record` 来源记录键、`availableFrom` 首次出现的回放阶段、`kind` 记录类型、`payload` 业务字段。来源记录键与业务身份分别定义。`next` 为下一页偏移，末页为 `null`。回放阶段中的记录按到达顺序可查。
 
 控制员通过 `POST /control?stage=2` 切换到第 2 阶段，服务会保留更早已可查的记录。每次换阶段后按根路径返回的 `stage` 确认切换成功。
+
+领取网关接受 `POST /sample/requests`，请求体提供 `application`、`edition`、`requestId` 与 `materials`。一次请求可能只交付部分原件，实际发出的条目各有独立 `ticket`。阶段 2 可能先返回 202，网关仍保留实际受理结果。用 `GET /sample/requests/领取号` 查询逐项明细。同一领取号已经受理时会返回 409。

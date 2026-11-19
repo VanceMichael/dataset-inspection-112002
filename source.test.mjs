@@ -54,3 +54,24 @@ test('资料在指定回放阶段从来源完整分页返回', async (t) => {
   assert.equal((await fetch(`${url}/source/missing`)).status, 404);
   t.diagnostic(`${index.sources.length} 处来源、${index.stages} 个阶段、${index.originals.length} 份原件`);
 });
+
+test('领取方可查重试状态，网关保留部分交付凭证', async (t) => {
+  const { server, url } = await start();
+  t.after(() => new Promise((resolve) => server.close(resolve)));
+  const receive = (body) => fetch(url + '/sample/requests', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+  });
+  const request = { application: 'DS2', edition: 1, requestId: 'SM-19', materials: ['IMG12', 'INDEX4'] };
+  const initial = await receive(request);
+  assert.equal(initial.status, 200);
+  assert.deepEqual((await initial.json()).items.map((item) => item.state), ['delivered','failed']);
+  assert.equal((await receive(request)).status, 409);
+  const receipt = await (await fetch(url + '/sample/requests/SM-19')).json();
+  assert.equal(receipt.items[0].ticket, 'SM-19-1');
+  await fetch(url + '/control?stage=2', { method: 'POST' });
+  const unknown = await receive({ ...request, requestId: 'SM-20' });
+  assert.equal(unknown.status, 202);
+  assert.equal((await fetch(url + '/sample/requests/SM-20')).status, 200);
+  await fetch(url + '/control?stage=3', { method: 'POST' });
+  assert.equal((await receive({ ...request, requestId: 'SM-21' })).status, 409);
+});
