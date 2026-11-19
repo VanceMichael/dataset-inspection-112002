@@ -1,0 +1,88 @@
+[
+  {
+    "record": "register-1",
+    "availableFrom": 1,
+    "kind": "application",
+    "payload": {
+      "application": "DS2",
+      "edition": 1,
+      "scope": [
+        "S11",
+        "S12"
+      ],
+      "quota": 3
+    }
+  },
+  {
+    "record": "register-2",
+    "availableFrom": 1,
+    "kind": "groups",
+    "payload": {
+      "application": "DS2",
+      "edition": 1,
+      "groups": {
+        "S11": [
+          "INDEX4",
+          "IMG11",
+          "NOTE7"
+        ],
+        "S12": [
+          "INDEX4",
+          "IMG12",
+          "NOTE7"
+        ]
+      }
+    }
+  },
+  {
+    "record": "register-3",
+    "availableFrom": 3,
+    "kind": "application",
+    "payload": {
+      "application": "DS2",
+      "edition": 2,
+      "scope": [
+        "S12",
+        "S13"
+      ],
+      "quota": 4
+    }
+  },
+  {
+    "record": "register-4",
+    "availableFrom": 3,
+    "kind": "groups",
+    "payload": {
+      "application": "DS2",
+      "edition": 2,
+      "groups": {
+        "S12": [
+          "INDEX5",
+          "IMG12",
+          "NOTE7"
+        ],
+        "S13": [
+          "INDEX5",
+          "IMG13",
+          "NOTE7"
+        ]
+      }
+    }
+  },
+  {
+    "record": "register-5",
+    "availableFrom": 3,
+    "kind": "reuse",
+    "payload": {
+      "application": "DS2",
+      "fromEdition": 1,
+      "toEdition": 2,
+      "materials": [
+        "NOTE7"
+      ],
+      "prohibited": [
+        "IMG11"
+      ]
+    }
+  }
+]

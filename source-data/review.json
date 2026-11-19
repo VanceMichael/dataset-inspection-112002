@@ -1,0 +1,25 @@
+[
+  {
+    "record": "review-1",
+    "availableFrom": 2,
+    "kind": "reading",
+    "payload": {
+      "application": "DS2",
+      "edition": 1,
+      "material": "IMG11",
+      "ticket": "T2",
+      "operator": "审-01"
+    }
+  },
+  {
+    "record": "review-2",
+    "availableFrom": 4,
+    "kind": "closed",
+    "payload": {
+      "application": "DS2",
+      "edition": 1,
+      "material": "IMG11",
+      "operator": "审-01"
+    }
+  }
+]

@@ -1,0 +1,69 @@
+[
+  {
+    "record": "gateway-1",
+    "availableFrom": 1,
+    "kind": "pickup",
+    "payload": {
+      "application": "DS2",
+      "edition": 1,
+      "ticket": "T1",
+      "material": "NOTE7",
+      "state": "delivered",
+      "sequence": 11
+    }
+  },
+  {
+    "record": "gateway-2",
+    "availableFrom": 1,
+    "kind": "pickup",
+    "payload": {
+      "application": "DS2",
+      "edition": 1,
+      "ticket": "T2",
+      "material": "IMG11",
+      "state": "delivered",
+      "sequence": 12
+    }
+  },
+  {
+    "record": "gateway-3",
+    "availableFrom": 2,
+    "kind": "pickup",
+    "payload": {
+      "application": "DS2",
+      "edition": 1,
+      "ticket": "T3",
+      "material": "IMG12",
+      "state": "unconfirmed",
+      "sequence": 13
+    }
+  },
+  {
+    "record": "gateway-4",
+    "availableFrom": 4,
+    "kind": "pickup",
+    "payload": {
+      "application": "DS2",
+      "edition": 1,
+      "ticket": "T3",
+      "material": "IMG12",
+      "state": "failed",
+      "sequence": 17
+    }
+  },
+  {
+    "record": "gateway-5",
+    "availableFrom": 4,
+    "kind": "offer",
+    "payload": {
+      "application": "DS2",
+      "edition": 2,
+      "group": [
+        "INDEX5",
+        "IMG13",
+        "NOTE7"
+      ],
+      "ttl": 90
+    }
+  }
+]

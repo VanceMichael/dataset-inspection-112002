@@ -1,0 +1,11 @@
+{
+  "sources": [
+    "register",
+    "gateway",
+    "review"
+  ],
+  "stages": 4,
+  "originals": [],
+  "originalStages": {},
+  "digests": {}
+}
